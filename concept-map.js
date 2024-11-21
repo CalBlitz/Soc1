@@ -92,8 +92,11 @@ function generateWordClouds(data) {
     topicSection.appendChild(wordCloud);
     // Randomize word positions after they are added to the DOM
     const containerWidth = wordCloud.offsetWidth;
-    const containerHeight = wordCloud.offsetHeight;
-    generateRandomPositions(words, containerWidth, containerHeight);
+    setTimeout(() => {
+        const containerWidth = wordCloud.offsetWidth;
+        const containerHeight = wordCloud.offsetHeight;
+        generateRandomPositions(words, containerWidth, containerHeight);
+      }, 0);
     generateRandomStyles(words);
 
     // Add definition box
