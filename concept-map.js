@@ -21,32 +21,34 @@ function generateRandomPositions(words, containerWidth, containerHeight) {
     let overlap = true;
     let attempts = 0;
 
-    while (overlap && attempts < 100) {
-      // Generate random X and Y positions, ensuring the words don't overflow
+    // Delay calculation to ensure word dimensions are available
+    setTimeout(() => {
       const wordWidth = word.offsetWidth;
       const wordHeight = word.offsetHeight;
 
-      const x = Math.random() * (containerWidth - wordWidth); // Ensure word fits within the width
-      const y = Math.random() * (containerHeight - wordHeight); // Ensure word fits within the height
+      while (overlap && attempts < 100) {
+        // Generate random X and Y positions, ensuring the words stay within bounds
+        const x = Math.random() * (containerWidth - wordWidth); // Fit horizontally
+        const y = Math.random() * (containerHeight - wordHeight); // Fit vertically
 
-      // Check for overlap with existing positions
-      overlap = positions.some((pos) => {
-        const distance = Math.sqrt(Math.pow(pos.x - x, 2) + Math.pow(pos.y - y, 2));
-        return distance < 50; // Minimum distance between words
-      });
+        // Check for overlap with existing positions
+        overlap = positions.some((pos) => {
+          const distance = Math.sqrt(Math.pow(pos.x - x, 2) + Math.pow(pos.y - y, 2));
+          return distance < 50; // Minimum spacing between words
+        });
 
-      if (!overlap) {
-        // Apply the random positions
-        word.style.left = `${x}px`;
-        word.style.top = `${y}px`;
-        positions.push({ x, y });
+        if (!overlap) {
+          // Apply the random positions
+          word.style.left = `${x}px`;
+          word.style.top = `${y}px`;
+          positions.push({ x, y });
+        }
+
+        attempts++;
       }
-
-      attempts++;
-    }
+    }, 0); // Delay to ensure dimensions are available
   });
 }
-
 
 // Function to generate word cloud with random placement
 function generateWordClouds(data) {
