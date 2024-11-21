@@ -87,3 +87,6 @@ function showDefinition(definition, index) {
   const definitionBox = document.getElementById(`definition-box-${index}`);
   definitionBox.textContent = definition;
 }
+
+// Generate the concept maps
+generateConceptMaps(topicsData);
