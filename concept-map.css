@@ -66,28 +66,27 @@ body {
   }
   
   /* Word Cloud Container */
-  .word-cloud {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  margin-bottom: 20px;
+   .word-cloud {
   position: relative;
-  height: 200px;
+  width: 100%; /* Make the container full-width */
+  height: 300px; /* Increase the height of the container for more space */
+  margin-bottom: 20px;
+  background-color: #f9f9f9; /* Optional background to visualize space */
+  overflow: hidden; /* Ensure words don’t overflow the container */
 }
 
-.word-cloud .word {
-  font-size: 18px;
+.word {
+  position: absolute; /* Allow words to be placed anywhere in the container */
   font-weight: bold;
-  color: #003262;
   cursor: pointer;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.2s ease, color 0.3s ease;
 }
 
-.word-cloud .word:hover {
-  transform: scale(1.2);
-  color: #ff9800;
+.word:hover {
+  transform: scale(1.2); /* Slight zoom on hover */
+  color: #ff9800; /* Change color on hover */
 }
+
 
 .definition-box {
   padding: 15px;
