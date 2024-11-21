@@ -1,5 +1,5 @@
 /* Navigation Bar */
-.topnav {
+#navbar .topnav {
   margin: 0 auto;
   padding: 0;
   overflow: hidden;
@@ -11,7 +11,7 @@
   z-index: 1000;
 }
 
-.topnav-content {
+#navbar .topnav-content {
   box-sizing: border-box;
   min-width: 200px;
   max-width: 900px;
@@ -19,7 +19,7 @@
   margin: 0 auto;
 }
 
-.topnav a {
+#navbar .topnav a {
   float: left;
   display: block;
   color: #003262;
@@ -29,14 +29,13 @@
   border-bottom: 4px solid transparent;
 }
 
-.topnav a:hover {
+#navbar .topnav a:hover {
   border-bottom-color: #003262;
 }
 
-.topnav a.right {
+#navbar .topnav a.right {
   float: right;
 }
-
 
 /* Concept Maps Page */
 body {
