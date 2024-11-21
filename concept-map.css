@@ -65,25 +65,31 @@ body {
     margin-bottom: 15px;
   }
   
-  .word-cloud {
+  /* Word Cloud Container */
+.word-cloud {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
+  position: relative;
+  width: 100%;
   padding: 20px;
   background-color: #f9f9f9;
- }
+}
 
- .word {
+/* Base Styling for Words */
+.word-cloud .word {
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.2s ease, color 0.3s ease;
- }
+}
 
- .word:hover {
-  transform: scale(1.2);
-  color: #ff9800;
- }
+/* Hover Effect */
+.word-cloud .word:hover {
+  transform: scale(1.2); /* Slight zoom effect */
+  color: #ff9800; /* Change color on hover */
+}
+
     
     
   
