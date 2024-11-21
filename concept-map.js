@@ -109,13 +109,13 @@ fetch("topics.json")
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-    return response.json(); // Parse the JSON response
+    return response.json();
   })
   .then(data => {
-    generateWordClouds(data); // Pass the JSON data to the generator function
+    generateWordClouds(data);
   })
   .catch(error => {
-    console.error("Error loading JSON:", error); // Log any errors
+    console.error("Error loading JSON:", error);
   });
 
 // Function to show definitions
