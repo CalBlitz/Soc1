@@ -1,3 +1,17 @@
+function generateRandomStyles(words) {
+  const colors = ['#4a90e2', '#50e3c2', '#7ed321', '#f5a623', '#d0021b', '#9013fe'];
+  const fontSizes = [14, 18, 22, 26, 30, 36]; // Possible font sizes
+
+  words.forEach((word) => {
+    // Randomize color
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    word.style.color = randomColor;
+
+    // Randomize font size
+    const randomFontSize = fontSizes[Math.floor(Math.random() * fontSizes.length)];
+    word.style.fontSize = `${randomFontSize}px`;
+  });
+}
 
 
 function generateRandomPositions(words, containerWidth, containerHeight) {
@@ -66,6 +80,7 @@ function generateWordClouds(data) {
     const containerWidth = wordCloud.offsetWidth;
     const containerHeight = wordCloud.offsetHeight;
     generateRandomPositions(words, containerWidth, containerHeight);
+    generateRandomStyles(words);
   });
 }
 
