@@ -1,0 +1,18 @@
+[
+  {
+    "topic": "Main Topic 1",
+    "words": [
+      { "term": "Term 1", "definition": "Definition of Term 1" },
+      { "term": "Term 2", "definition": "Definition of Term 2" },
+      { "term": "Term 3", "definition": "Definition of Term 3" }
+    ]
+  },
+  {
+    "topic": "Main Topic 2",
+    "words": [
+      { "term": "Term A", "definition": "Definition of Term A" },
+      { "term": "Term B", "definition": "Definition of Term B" },
+      { "term": "Term C", "definition": "Definition of Term C" }
+    ]
+  }
+]
