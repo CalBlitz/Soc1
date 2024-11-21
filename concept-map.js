@@ -1,17 +1,64 @@
-function showDefinition(definition) {
-    // Find the definition box closest to the clicked word
-    const definitionBox = event.target.parentElement.nextElementSibling;
-    definitionBox.textContent = definition;
-  };
+// Fetch JSON Data and Generate Concept Maps
+fetch("topics.json")
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json(); // Parse the JSON response
+  })
+  .then(data => {
+    generateConceptMaps(data); // Pass the JSON data to the generator function
+  })
+  .catch(error => {
+    console.error("Error loading JSON:", error); // Log any errors
+  });
 
-const words = document.querySelectorAll('.word-cloud .word');
+// Function to generate word clouds and definitions
+function generateConceptMaps(data) {
+  const container = document.getElementById("conceptMapsPage");
 
-const colors = ['#4a90e2', '#50e3c2', '#7ed321', '#f5a623', '#d0021b', '#9013fe'];
-const fontSizes = [15, 20, 25, 30, 35, 40];
+  data.forEach((topicData, index) => {
+    // Create topic section
+    const topicSection = document.createElement("div");
+    topicSection.classList.add("topic-section");
 
-words.forEach(word => {
-  const randomFontSize = fontSizes[Math.floor(Math.random() * fontSizes.length)];
-  const randomColor = colors[Math.floor(Math.random() * colors.length)];
-  word.style.fontSize = `${randomFontSize}px`;
-  word.style.color = randomColor;
-});
+    // Add topic title
+    const title = document.createElement("h2");
+    title.textContent = topicData.topic;
+    topicSection.appendChild(title);
+
+    // Create word cloud container
+    const wordCloud = document.createElement("div");
+    wordCloud.classList.add("word-cloud");
+    wordCloud.id = `word-cloud-${index + 1}`;
+
+    // Add words to the word cloud
+    topicData.words.forEach((word) => {
+      const wordSpan = document.createElement("span");
+      wordSpan.classList.add("word");
+      wordSpan.textContent = word.term;
+      wordSpan.onclick = () => showDefinition(word.definition, index + 1);
+      wordCloud.appendChild(wordSpan);
+    });
+
+    topicSection.appendChild(wordCloud);
+
+    // Add definition box
+    const definitionBox = document.createElement("div");
+    definitionBox.classList.add("definition-box");
+    definitionBox.id = `definition-box-${index + 1}`;
+    definitionBox.textContent = "Click a term to see its definition here.";
+    topicSection.appendChild(definitionBox);
+
+    container.appendChild(topicSection);
+  });
+}
+
+// Function to show definitions
+function showDefinition(definition, index) {
+  const definitionBox = document.getElementById(`definition-box-${index}`);
+  definitionBox.textContent = definition;
+}
+
+// Generate the concept maps
+generateConceptMaps(topicsData);
