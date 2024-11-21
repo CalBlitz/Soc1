@@ -48,7 +48,7 @@ function generateRandomPositions(words, containerWidth, containerHeight) {
 function generateWordClouds(data) {
   const container = document.getElementById("conceptMapsPage");
 
-  data.forEach((topicData, index) => {
+  data.forEach((sectionData) => {
     // Create a section container
     const sectionContainer = document.createElement("div");
     sectionContainer.classList.add("section-container");
@@ -119,7 +119,7 @@ fetch("topics.json")
   });
 
 // Function to show definitions
-function showDefinition(definition, index) {
+function showDefinition(definition, id) {
   const definitionBox = document.getElementById(id);
   if (definitionBox) {
     definitionBox.textContent = definition;
