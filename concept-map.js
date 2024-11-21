@@ -72,19 +72,23 @@ function generateWordClouds(data) {
     // Create word cloud container
     const wordCloud = document.createElement("div");
     wordCloud.classList.add("word-cloud");
-    wordCloud.id = `word-cloud-${index + 1}`;
 
     // Add words to the word cloud
     const words = topicData.words.map((wordData) => {
       const wordSpan = document.createElement("span");
       wordSpan.classList.add("word");
       wordSpan.textContent = wordData.term;
-      wordSpan.onclick = () => showDefinition(wordData.definition, index + 1);
+      wordSpan.onclick = () => showDefinition(wordData.definition, `${sectionData.section}-${topicIndex + 1}`);
       wordCloud.appendChild(wordSpan);
       return wordSpan;
     });
 
     topicSection.appendChild(wordCloud);
+    // Randomize word positions after they are added to the DOM
+    const containerWidth = wordCloud.offsetWidth;
+    const containerHeight = wordCloud.offsetHeight;
+    generateRandomPositions(words, containerWidth, containerHeight);
+    generateRandomStyles(words);
 
     // Add definition box
     const definitionBox = document.createElement("div");
@@ -92,14 +96,9 @@ function generateWordClouds(data) {
     definitionBox.id = `definition-box-${index + 1}`;
     definitionBox.textContent = "Click a term to see its definition here.";
     topicSection.appendChild(definitionBox);
-    sectionContainer.appendChild(topicSection);});
-
+    sectionContainer.appendChild(topicSection);
+  });
     container.appendChild(sectionContainer);
-    // Randomize word positions after they are added to the DOM
-    const containerWidth = wordCloud.offsetWidth;
-    const containerHeight = wordCloud.offsetHeight;
-    generateRandomPositions(words, containerWidth, containerHeight);
-    generateRandomStyles(words);
   });
 }
 
@@ -121,11 +120,9 @@ fetch("topics.json")
 
 // Function to show definitions
 function showDefinition(definition, index) {
-  const definitionBox = document.getElementById(`definition-box-${index}`);
+  const definitionBox = document.getElementById(id);
   if (definitionBox) {
     definitionBox.textContent = definition;
-  } else {
-    console.error(`Definition box for index ${index} not found`);
   }
 }
 
