@@ -49,9 +49,20 @@ function generateWordClouds(data) {
   const container = document.getElementById("conceptMapsPage");
 
   data.forEach((topicData, index) => {
-    // Create topic section
-    const topicSection = document.createElement("div");
-    topicSection.classList.add("topic-section");
+    // Create a section container
+    const sectionContainer = document.createElement("div");
+    sectionContainer.classList.add("section-container");
+
+    // Add section title
+    const sectionTitle = document.createElement("h1");
+    sectionTitle.textContent = sectionData.section;
+    sectionTitle.classList.add("section-title");
+    sectionContainer.appendChild(sectionTitle);
+
+    // Loop through topics in the section
+    sectionData.topics.forEach((topicData, topicIndex) => {
+      const topicSection = document.createElement("div");
+      topicSection.classList.add("topic-section");
 
     // Add topic title
     const title = document.createElement("h2");
@@ -74,13 +85,16 @@ function generateWordClouds(data) {
     });
 
     topicSection.appendChild(wordCloud);
+
+    // Add definition box
     const definitionBox = document.createElement("div");
     definitionBox.classList.add("definition-box");
     definitionBox.id = `definition-box-${index + 1}`;
     definitionBox.textContent = "Click a term to see its definition here.";
     topicSection.appendChild(definitionBox);
-    container.appendChild(topicSection);
+    sectionContainer.appendChild(topicSection);});
 
+    container.appendChild(sectionContainer);
     // Randomize word positions after they are added to the DOM
     const containerWidth = wordCloud.offsetWidth;
     const containerHeight = wordCloud.offsetHeight;
