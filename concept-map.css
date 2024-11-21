@@ -1,3 +1,43 @@
+/* Navigation Bar */
+.topnav {
+  margin: 0 auto;
+  padding: 0;
+  overflow: hidden;
+  background-color: #f5f6fa;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  border-bottom: 2px solid #003262;
+  z-index: 1000;
+}
+
+.topnav-content {
+  box-sizing: border-box;
+  min-width: 200px;
+  max-width: 900px;
+  overflow: auto;
+  margin: 0 auto;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #003262;
+  text-align: center;
+  padding: 10px;
+  text-decoration: none;
+  border-bottom: 4px solid transparent;
+}
+
+.topnav a:hover {
+  border-bottom-color: #003262;
+}
+
+.topnav a.right {
+  float: right;
+}
+
+
 /* Concept Maps Page */
 body {
     font-family: Arial, sans-serif;
