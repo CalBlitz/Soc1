@@ -74,6 +74,11 @@ function generateWordClouds(data) {
     });
 
     topicSection.appendChild(wordCloud);
+    const definitionBox = document.createElement("div");
+    definitionBox.classList.add("definition-box");
+    definitionBox.id = `definition-box-${index + 1}`;
+    definitionBox.textContent = "Click a term to see its definition here.";
+    topicSection.appendChild(definitionBox);
     container.appendChild(topicSection);
 
     // Randomize word positions after they are added to the DOM
@@ -103,6 +108,10 @@ fetch("topics.json")
 // Function to show definitions
 function showDefinition(definition, index) {
   const definitionBox = document.getElementById(`definition-box-${index}`);
-  definitionBox.textContent = definition;
+  if (definitionBox) {
+    definitionBox.textContent = definition;
+  } else {
+    console.error(`Definition box for index ${index} not found`);
+  }
 }
 
