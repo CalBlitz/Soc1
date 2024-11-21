@@ -22,9 +22,12 @@ function generateRandomPositions(words, containerWidth, containerHeight) {
     let attempts = 0;
 
     while (overlap && attempts < 100) {
-      // Generate random X and Y positions
-      const x = Math.random() * (containerWidth - 100); // Avoid edges (100px buffer)
-      const y = Math.random() * (containerHeight - 30); // Avoid edges (30px buffer)
+      // Generate random X and Y positions, ensuring the words don't overflow
+      const wordWidth = word.offsetWidth;
+      const wordHeight = word.offsetHeight;
+
+      const x = Math.random() * (containerWidth - wordWidth); // Ensure word fits within the width
+      const y = Math.random() * (containerHeight - wordHeight); // Ensure word fits within the height
 
       // Check for overlap with existing positions
       overlap = positions.some((pos) => {
@@ -43,6 +46,7 @@ function generateRandomPositions(words, containerWidth, containerHeight) {
     }
   });
 }
+
 
 // Function to generate word cloud with random placement
 function generateWordClouds(data) {
