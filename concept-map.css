@@ -50,6 +50,22 @@ body {
     margin: 0 auto;
     padding: 20px 0;
   }
+
+  /* Section Styling */
+.section-container {
+  margin-bottom: 50px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fdfdfd;
+}
+
+.section-title {
+  font-size: 28px;
+  color: #003262;
+  margin-bottom: 15px;
+  text-align: center;
+}
   
   .topic-section {
     margin-bottom: 50px;
