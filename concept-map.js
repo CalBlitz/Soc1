@@ -1,17 +1,4 @@
-// Fetch JSON Data and Generate Concept Maps
-fetch("topics.json")
-  .then(response => {
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    return response.json(); // Parse the JSON response
-  })
-  .then(data => {
-    generateConceptMaps(data); // Pass the JSON data to the generator function
-  })
-  .catch(error => {
-    console.error("Error loading JSON:", error); // Log any errors
-  });
+
 
 function generateRandomPositions(words, containerWidth, containerHeight) {
   const positions = []; // Store positions to avoid collisions
@@ -82,11 +69,25 @@ function generateWordClouds(data) {
   });
 }
 
+
+// Fetch JSON Data and Generate Concept Maps
+fetch("topics.json")
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json(); // Parse the JSON response
+  })
+  .then(data => {
+    generateWordClouds(data); // Pass the JSON data to the generator function
+  })
+  .catch(error => {
+    console.error("Error loading JSON:", error); // Log any errors
+  });
+
 // Function to show definitions
 function showDefinition(definition, index) {
   const definitionBox = document.getElementById(`definition-box-${index}`);
   definitionBox.textContent = definition;
 }
 
-// Generate the concept maps
-generateConceptMaps(topicsData);
