@@ -1,47 +1,44 @@
 [
   {
-    "topic": "Main Topic 1",
-    "words": [
-      { "term": "Alpha", "definition": "Definition of Alpha" },
-      { "term": "Beta", "definition": "Definition of Beta" },
-      { "term": "Gamma", "definition": "Definition of Gamma" },
-      { "term": "Delta", "definition": "Definition of Delta" },
-      { "term": "Epsilon", "definition": "Definition of Epsilon" },
-      { "term": "Zeta", "definition": "Definition of Zeta" },
-      { "term": "Eta", "definition": "Definition of Eta" },
-      { "term": "Theta", "definition": "Definition of Theta" },
-      { "term": "Iota", "definition": "Definition of Iota" },
-      { "term": "Kappa", "definition": "Definition of Kappa" }
+    "section": "Section 1",
+    "topics": [
+      {
+        "topic": "Main Topic 1",
+        "words": [
+          { "term": "Alpha", "definition": "Definition of Alpha" },
+          { "term": "Beta", "definition": "Definition of Beta" },
+          { "term": "Gamma", "definition": "Definition of Gamma" }
+        ]
+      },
+      {
+        "topic": "Main Topic 2",
+        "words": [
+          { "term": "Delta", "definition": "Definition of Delta" },
+          { "term": "Epsilon", "definition": "Definition of Epsilon" },
+          { "term": "Zeta", "definition": "Definition of Zeta" }
+        ]
+      }
     ]
   },
   {
-    "topic": "Main Topic 2",
-    "words": [
-      { "term": "Lambda", "definition": "Definition of Lambda" },
-      { "term": "Mu", "definition": "Definition of Mu" },
-      { "term": "Nu", "definition": "Definition of Nu" },
-      { "term": "Xi", "definition": "Definition of Xi" },
-      { "term": "Omicron", "definition": "Definition of Omicron" },
-      { "term": "Pi", "definition": "Definition of Pi" },
-      { "term": "Rho", "definition": "Definition of Rho" },
-      { "term": "Sigma", "definition": "Definition of Sigma" },
-      { "term": "Tau", "definition": "Definition of Tau" },
-      { "term": "Upsilon", "definition": "Definition of Upsilon" }
-    ]
-  },
-  {
-    "topic": "Main Topic 3",
-    "words": [
-      { "term": "Phi", "definition": "Definition of Phi" },
-      { "term": "Chi", "definition": "Definition of Chi" },
-      { "term": "Psi", "definition": "Definition of Psi" },
-      { "term": "Omega", "definition": "Definition of Omega" },
-      { "term": "Sigma Prime", "definition": "Definition of Sigma Prime" },
-      { "term": "Delta Prime", "definition": "Definition of Delta Prime" },
-      { "term": "Theta Prime", "definition": "Definition of Theta Prime" },
-      { "term": "Epsilon Prime", "definition": "Definition of Epsilon Prime" },
-      { "term": "Alpha Beta", "definition": "Definition of Alpha Beta" },
-      { "term": "Gamma Delta", "definition": "Definition of Gamma Delta" }
+    "section": "Section 2",
+    "topics": [
+      {
+        "topic": "Main Topic 3",
+        "words": [
+          { "term": "Eta", "definition": "Definition of Eta" },
+          { "term": "Theta", "definition": "Definition of Theta" },
+          { "term": "Iota", "definition": "Definition of Iota" }
+        ]
+      },
+      {
+        "topic": "Main Topic 4",
+        "words": [
+          { "term": "Kappa", "definition": "Definition of Kappa" },
+          { "term": "Lambda", "definition": "Definition of Lambda" },
+          { "term": "Mu", "definition": "Definition of Mu" }
+        ]
+      }
     ]
   }
 ]
