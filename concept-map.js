@@ -93,7 +93,7 @@ function generateWordClouds(data) {
     // Add definition box
     const definitionBox = document.createElement("div");
     definitionBox.classList.add("definition-box");
-    definitionBox.id = `definition-box-${index + 1}`;
+    definitionBox.id = `${sectionData.section}-${topicIndex + 1}`;
     definitionBox.textContent = "Click a term to see its definition here.";
     topicSection.appendChild(definitionBox);
     sectionContainer.appendChild(topicSection);
