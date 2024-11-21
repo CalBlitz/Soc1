@@ -67,26 +67,23 @@ body {
   
   /* Word Cloud Container */
 .word-cloud {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
   position: relative;
-  width: 100%;
-  padding: 20px;
-  background-color: #f9f9f9;
+  width: 100%; /* Make the container full-width */
+  height: 300px; /* Increase the height of the container for more space */
+  margin-bottom: 20px;
+  background-color: #f9f9f9; /* Optional background to visualize space */
+  overflow: hidden; /* Ensure words don’t overflow the container */
 }
 
-/* Base Styling for Words */
-.word-cloud .word {
+.word {
+  position: absolute; /* Allow words to be placed anywhere in the container */
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.2s ease, color 0.3s ease;
 }
 
-/* Hover Effect */
-.word-cloud .word:hover {
-  transform: scale(1.2); /* Slight zoom effect */
+.word:hover {
+  transform: scale(1.2); /* Slight zoom on hover */
   color: #ff9800; /* Change color on hover */
 }
 
